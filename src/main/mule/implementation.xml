@@ -24,7 +24,7 @@ http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/
 output application/json
 ---
 {
-	"MESSAGE": "Called CICD Test Flow!!",
+	"MESSAGE": "Called CICD Test Flow!",
 	"TIMESTAMP": now(),
 	"IMAGINARY_CORE_SYSTEM_ENV": Mule::p("imaginaryCoreSystem.env")
 }]]></ee:set-payload>
