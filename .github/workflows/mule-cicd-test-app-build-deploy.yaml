@@ -12,13 +12,13 @@ on:
 
 jobs:
   # Job to validate pull requests before merging to develop
-  prepare-mergeTo-develop:
+  call-mcw-pr-ci:
     if: ${{ github.event_name == 'pull_request' }}
     uses: shyam-kulkarni-gh/mule-common-workflows/.github/workflows/pr-ci.yaml@main
     secrets: inherit
 
   # Job to build and deploy on direct pushes (not PRs)
-  call-common-workflow:
+  call-mcw-build-and-deploy:
     if: ${{ github.event_name != 'pull_request' }}
     uses: shyam-kulkarni-gh/mule-common-workflows/.github/workflows/build.yaml@main
     secrets: inherit
