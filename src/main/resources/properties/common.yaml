@@ -1,0 +1,4 @@
+api:
+  port: "8081"
+  readTimeout: "30000"
+  connectionIdleTimeout: "40000"
