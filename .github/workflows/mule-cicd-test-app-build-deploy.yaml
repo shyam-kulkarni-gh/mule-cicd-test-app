@@ -12,7 +12,7 @@ on:
 
 jobs:
   # Job to validate pull requests before merging to develop
-  prepare-merge2development:
+  prepare-mergeTo-develop:
     if: ${{ github.event_name == 'pull_request' }}
     uses: shyam-kulkarni-gh/mule-common-workflows/.github/workflows/pr-ci.yaml@main
     secrets: inherit
