@@ -1,0 +1,24 @@
+name: Build & Deploy to CloudHub 2.0
+
+on:
+  pull_request:
+    branches: [develop]  # Triggers on PRs targeting the develop branch
+
+  push:
+    branches:
+      - develop           # Pushes to develop branch trigger build & deploy
+      - uat               # Supports release branches (e.g., release/v1.0)
+      - main              # Pushes to main for production deployment
+
+jobs:
+  # Job to validate pull requests before merging to develop
+  prepare-merge2development:
+    if: ${{ github.event_name == 'pull_request' }}
+    uses: mule-common-workflows/.github/workflows/pr-ci.yaml@main
+    secrets: inherit
+
+  # Job to build and deploy on direct pushes (not PRs)
+  call-common-workflow:
+    if: ${{ github.event_name != 'pull_request' }}
+    uses: mule-common-workflows/.github/workflows/build.yaml@main
+    secrets: inherit
