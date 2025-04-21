@@ -6,13 +6,16 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>ee4ca0cd-d075-4f02-996f-e8b1da681d2f</groupId>
 	<artifactId>mule-cicd-test-app</artifactId>
-	<version>1.0.1</version>
+	<version>1.0.2</version>
 	<packaging>mule-application</packaging>
 	<name>mule-cicd-test-app</name>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<app.runtime>4.9.0</app.runtime>
+		<deployment.muleVersion>4.9.3</deployment.muleVersion>
+		<deployment.javaVersion>17</deployment.javaVersion>
+		<deployment.releaseChannel>LTS</deployment.releaseChannel>
 		<app.majorVersion>v1</app.majorVersion>
 		<mule.maven.plugin.version>4.3.0</mule.maven.plugin.version>
 		<anypoint.uri>anypoint.mulesoft.com</anypoint.uri>
@@ -39,7 +42,9 @@
 						<connectedAppClientSecret>${connectedApp.clientSecret}</connectedAppClientSecret>
 						<connectedAppGrantType>client_credentials</connectedAppGrantType>
 						<uri>https://${anypoint.uri}</uri>
-						<muleVersion>${app.runtime}</muleVersion>
+						<muleVersion>${deployment.muleVersion}</muleVersion>
+						<releaseChannel>${deployment.releaseChannel}</releaseChannel>
+						<javaVersion></javaVersion>
 						<applicationName>${project.artifactId}-${app.majorVersion}-${mule.env}</applicationName>
 						<target>${ch2.target}</target>
 						<provider>MC</provider>
