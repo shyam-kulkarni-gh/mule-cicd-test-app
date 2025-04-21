@@ -44,7 +44,7 @@
 						<uri>https://${anypoint.uri}</uri>
 						<muleVersion>${deployment.muleVersion}</muleVersion>
 						<releaseChannel>${deployment.releaseChannel}</releaseChannel>
-						<javaVersion></javaVersion>
+						<javaVersion>${deployment.javaVersion}</javaVersion>
 						<applicationName>${project.artifactId}-${app.majorVersion}-${mule.env}</applicationName>
 						<target>${ch2.target}</target>
 						<provider>MC</provider>
