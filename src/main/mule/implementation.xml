@@ -16,6 +16,11 @@ http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/
 			doc:id="06d51192-d7e6-408a-8a7e-9ab56c2700d5"
 			path="/cicdTest"
 			config-ref="httpListenerConfig" />
+		<logger
+			level="INFO"
+			doc:name="start"
+			doc:id="497178ad-2726-4c8f-8844-3a900ff5e4d3"
+			message='#["start flow"]' />
 		<ee:transform
 			doc:name="to JSON format"
 			doc:id="91075dc9-964e-4b70-86ee-5570e1387b9d">
@@ -35,5 +40,6 @@ output application/json
 			doc:name="JSON response"
 			doc:id="579635e5-7124-4ce5-a89e-48ded851c12c"
 			message="#[payload]" />
+		<logger level="INFO" doc:name="end" doc:id="b65d18ba-6080-4470-b344-4254fee9e021" message='#["end flow"]'/>
 	</flow>
 </mule>
