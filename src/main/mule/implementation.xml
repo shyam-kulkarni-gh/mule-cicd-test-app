@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mule
+	xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<flow
+		name="implementation_testFlow"
+		doc:id="1b516b33-e6d6-44f2-abc2-5c1afa1be3a2">
+		<http:listener
+			doc:name=":8081/cicdTest"
+			doc:id="06d51192-d7e6-408a-8a7e-9ab56c2700d5"
+			path="/cicdTest"
+			config-ref="httpListenerConfig" />
+		<ee:transform
+			doc:name="to JSON format"
+			doc:id="91075dc9-964e-4b70-86ee-5570e1387b9d">
+			<ee:message>
+				<ee:set-payload><![CDATA[%dw 2.0
+output application/json
+---
+{
+	"MESSAGE": "Called CICD Test Flow!",
+	"TIMESTAMP": now(),
+	"IMAGINARY_CORE_SYSTEM_ENV": Mule::p("imaginaryCoreSystem.env")
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<logger
+			level="INFO"
+			doc:name="JSON response"
+			doc:id="579635e5-7124-4ce5-a89e-48ded851c12c"
+			message="#[payload]" />
+	</flow>
+</mule>
