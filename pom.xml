@@ -6,7 +6,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>ee4ca0cd-d075-4f02-996f-e8b1da681d2f</groupId>
 	<artifactId>mule-cicd-test-app</artifactId>
-	<version>1.0.1</version>
+	<version>1.0.0</version>
 	<packaging>mule-application</packaging>
 	<name>mule-cicd-test-app</name>
 	<properties>
